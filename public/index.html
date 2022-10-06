@@ -20,10 +20,27 @@
           class="bg-transparent border btn record-button rounded-circle shadow-sm text-center"
           id="recordButton"
         >
-          <img src="/images/microphone.png" alt="Record" class="img-fluid" id="recordButtonImage" />
+          <img
+            src="/images/microphone.png"
+            alt="Record"
+            class="img-fluid"
+            id="recordButtonImage"
+          />
         </button>
       </div>
     </div>
+    <div
+      class="recorded-audio-container mt-5 d-none flex-column justify-content-center align-items-center"
+      id="recordedAudioContainer">
+      <div class="actions mt-3">
+        <button class="btn btn-success rounded-pill" id="saveButton">
+          Save
+        </button>
+        <button class="btn btn-danger rounded-pill" id="discardButton">
+          Discard
+        </button>
+      </div>
+    </div>
+    <script src="/js/record.js"></script>
   </body>
 </html>
-
