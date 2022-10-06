@@ -1,3 +1,6 @@
+//logic for aspects of recording provided by SitePoint for free use under th eMIT license
+// Examples can be found here: https://www.sitepoint.com/mediastream-api-record-audio/
+
 // Elements needed from webpage
 const recordButton = document.getElementById("recordButton");
 const recordButtonImage = document.getElementById("recordButtonImage");
