@@ -8,6 +8,10 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
+.settings-button:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
 .play-button:hover {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
@@ -17,3 +21,24 @@
   width: 8em;
   background-color: #5084d2;
 }
+
+.headerContainer {
+  padding: 60px;
+  text-align: center;
+  background: #f2a63b;
+  color: white;
+  font-size: 30px;
+}
+
+.settingsButton {
+  position: absolute;
+  background: #f2a63b;
+  top: 0;
+  right: 0;
+  width: 90px;
+}
+
+
+
+
+
