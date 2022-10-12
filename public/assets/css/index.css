@@ -14,22 +14,15 @@
   transform: scale(1.25);
 }
 
-.play-button:hover {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-}
-
-.play-button {
-  height: 8em;
-  width: 8em;
-  background-color: #5084d2;
-}
 
 .headerContainer {
   padding: 10px;
   text-align: center;
   background: #f2a63b;
   font-size: 30px;
+  margin-bottom: 4%;
 }
+
 
 .settingsButton {
   position: absolute;
@@ -44,24 +37,58 @@
   background: #ef8738;
 }
 
-.gameContainer {
+.buttonsContainer {
   width: 1000px;
   margin: 0 auto;
   height: 200px;
 }
-.gameContainer [class*="box"] {
+.buttonsContainer [class*="box"] {
   width: 300px;
   height: 200px;
   float: left;
   margin-right: 50px;
 }
-.gameContainer .boxPlay {
+.buttonsContainer .boxPlay {
   background-color: #000;
+  text-align: center;
 }
-.gameContainer .boxWords {
+.buttonsContainer .boxWords {
   background-color: #999;
 }
-.gameContainer .boxRecord {
+.buttonsContainer .boxRecord {
   background-color: #333;
   margin-right: 0;
+}
+
+.gameContainer {
+  margin-top: 50px;
+  width: 95%;
+  margin: 0 auto;
+  /*find way to make this a percent, not a pixel amount*/
+  height: 450px;
+}
+.gameContainer [class*="box"] {
+  width: 30%;
+  height: 100%;
+  float: left;
+  margin-right: 5%;
+}
+.gameContainer .boxPic1 {
+  background-color: #000;
+}
+.gameContainer .boxPic2 {
+  background-color: #999;
+}
+.gameContainer .boxPic3 {
+  background-color: #333;
+  margin-right: 0;
+}
+
+.playButton {
+  position: absolute;
+  background: #f2a63b;
+  top: 20px;
+  right: 20px;
+  width: 110px;
+
 }
