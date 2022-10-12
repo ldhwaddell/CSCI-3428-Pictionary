@@ -1,0 +1,20 @@
+#header{
+    margin-top:50px;
+    font-size: 20pt;
+    margin-left: 325px;
+    align-content: center;
+}
+
+body{
+    background-color: orange;
+}
+#game{
+    margin-top:300px;
+}
+img{
+
+    width:300px
+}
+.pictures{
+    width: 100px
+}
