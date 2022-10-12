@@ -8,8 +8,12 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
-.settings-button:hover {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+.settingsButton:hover {  
+  box-shadow: 0 0 0 3px #d25753;
+  
+  transform: scale(1.25);
+
+
 }
 
 .play-button:hover {
@@ -23,7 +27,7 @@
 }
 
 .headerContainer {
-  padding: 60px;
+  padding: 100px;
   text-align: center;
   background: #f2a63b;
   color: white;
@@ -33,10 +37,16 @@
 .settingsButton {
   position: absolute;
   background: #f2a63b;
-  top: 0;
-  right: 0;
-  width: 90px;
+  top: 20px;
+  right: 20px;
+  width: 110px;
+  float: right;
 }
+
+.pageContainer {
+  background: #ef8738;
+}
+
 
 
 
