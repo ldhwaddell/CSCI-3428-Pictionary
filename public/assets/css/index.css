@@ -1,6 +1,5 @@
 .settingsButton:hover {
-  box-shadow: 0 0 0 3px #d25753;
-  transform: scale(1.25);
+  transform: scale(1.15);
 }
 
 .playButton:hover {
@@ -8,6 +7,10 @@
 }
 
 .recordButton:hover {
+  transform: scale(1.15);
+}
+
+.picButton:hover {
   transform: scale(1.15);
 }
 
@@ -21,11 +24,13 @@
 
 .settingsButton {
   position: absolute;
-  background: #f2a63b;
   top: 20px;
   right: 20px;
   width: 110px;
   float: right;
+  outline: 5px solid #d25753;
+  background-color: #4c3024;
+
 }
 
 .pageContainer {
@@ -52,15 +57,15 @@
 }
 
 .gameContainer {
-  margin-top: 50px;
+  position: relative;
   width: 95%;
   margin: 0 auto;
   /*find way to make this a percent, not a pixel amount*/
-  height: 450px;
 }
 .gameContainer [class*="box"] {
+  margin-top: 12%;
   width: 30%;
-  height: 100%;
+  height: 325px;
   float: left;
   margin-right: 5%;
 }
@@ -82,6 +87,7 @@
   width: 90%;
   height: 90%;
   outline: 5px solid #d25753;
+  background-color: #4c3024;
 }
 
 .playButtonImage {
@@ -98,10 +104,16 @@
   width: 90%;
   height: 90%;
   outline: 5px solid #d25753;
+  background-color: #4c3024;
 }
 
 .recordButtonImage {
   vertical-align: top;
   width: auto;
   height: 100%;
+}
+
+.picButton {
+  width: 100%;
+  outline: 5px solid #d25753;
 }

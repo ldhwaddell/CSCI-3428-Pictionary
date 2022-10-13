@@ -11,8 +11,10 @@
       crossorigin="anonymous"
     />
     <link href="/css/index.css" rel="stylesheet" />
+    <script src="/js/questions.js"></script>
+
   </head>
-  <body class="pageContainer">
+  <body class="pageContainer" onload="setup()">
     <div class="headerContainer">
       <!--div for settings button-->
       <div>
@@ -53,9 +55,9 @@
     </div>
     <!--div for the three pictures the user can click-->
     <div class="gameContainer">
-      <div class="boxPic1"></div>
-      <div class="boxPic2"></div>
-      <div class="boxPic3"></div>
+      <div class="boxPic1" id="pic1"></div>
+      <div class="boxPic2" id="pic2"></div>
+      <div class="boxPic3"id="pic3"></div>
     </div>
   </body>
 </html>

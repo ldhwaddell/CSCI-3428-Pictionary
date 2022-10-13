@@ -56,11 +56,3 @@ app.get("/recordings", (req, res) => {
 app.post("/record", upload.single("audio"), (req, res) =>
   res.json({ success: true })
 );
-
-// directory path
-const dir = './public/assets/audioFiles'
-
-// list all files in the directory
-
-const files = fs.readdirSync(dir)
-console.log(files)
