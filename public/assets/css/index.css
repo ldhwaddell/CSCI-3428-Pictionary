@@ -1,17 +1,14 @@
-.record-button {
-  height: 8em;
-  width: 8em;
-  border-color: #f3f3f3 !important;
-}
-
-.record-button:hover {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-}
-
 .settingsButton:hover {
   box-shadow: 0 0 0 3px #d25753;
-
   transform: scale(1.25);
+}
+
+.playButton:hover {
+  transform: scale(1.15);
+}
+
+.recordButton:hover {
+  transform: scale(1.15);
 }
 
 .headerContainer {
@@ -46,16 +43,11 @@
   float: left;
   margin-right: 50px;
 }
-.buttonsContainer .boxPlay {
-  background-color: #000;
-  text-align: center;
-}
 
 .buttonsContainer .boxWords {
   background-color: #999;
 }
 .buttonsContainer .boxRecord {
-  background-color: #333;
   margin-right: 0;
 }
 
@@ -85,28 +77,31 @@
 
 .playButton {
   display: block;
-  background: #d03bf2;
   margin-top: 3%;
   margin-left: 5%;
   width: 90%;
   height: 90%;
+  outline: 5px solid #d25753;
 }
 
-.wordsButton {
-  display: block;
-  background: #273879;
-  margin-top: 3%;
-  margin-left: 5%;
-  width: 90%;
-  height: 90%;
+.playButtonImage {
+  vertical-align: top;
+  width: auto;
+  height: 100%;
+  margin-top: -10%;
 }
 
 .recordButton {
   display: block;
-  background: #47a816; 
   margin-top: 3%;
   margin-left: 5%;
   width: 90%;
   height: 90%;
+  outline: 5px solid #d25753;
+}
 
+.recordButtonImage {
+  vertical-align: top;
+  width: auto;
+  height: 100%;
 }
