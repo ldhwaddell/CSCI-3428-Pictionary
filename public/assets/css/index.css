@@ -19,7 +19,6 @@
   text-align: center;
   background: #f2a63b;
   font-size: 30px;
-  margin-bottom: 4%;
 }
 
 .settingsButton {
@@ -30,7 +29,6 @@
   float: right;
   outline: 5px solid #d25753;
   background-color: #4c3024;
-
 }
 
 .pageContainer {
@@ -49,9 +47,6 @@
   margin-right: 50px;
 }
 
-.buttonsContainer .boxWords {
-  background-color: #999;
-}
 .buttonsContainer .boxRecord {
   margin-right: 0;
 }
@@ -63,9 +58,8 @@
   /*find way to make this a percent, not a pixel amount*/
 }
 .gameContainer [class*="box"] {
-  margin-top: 12%;
+  margin-top: 1.5%;
   width: 30%;
-  height: 325px;
   float: left;
   margin-right: 5%;
 }
@@ -116,4 +110,12 @@
 .picButton {
   width: 100%;
   outline: 5px solid #d25753;
+}
+
+.wordsContainer {
+  padding: 80px;
+  text-align: center;
+  background: #4c3024;
+  font-size: 30px;
+  color: antiquewhite;
 }

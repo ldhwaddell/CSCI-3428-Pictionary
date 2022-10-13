@@ -1,3 +1,5 @@
+//file for the game logic
+
 const playButton = document.getElementById("playButton");
 
 
