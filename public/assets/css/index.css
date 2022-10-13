@@ -14,7 +14,6 @@
   transform: scale(1.25);
 }
 
-
 .headerContainer {
   padding: 10px;
   text-align: center;
@@ -22,7 +21,6 @@
   font-size: 30px;
   margin-bottom: 4%;
 }
-
 
 .settingsButton {
   position: absolute;
@@ -52,6 +50,7 @@
   background-color: #000;
   text-align: center;
 }
+
 .buttonsContainer .boxWords {
   background-color: #999;
 }
@@ -85,10 +84,29 @@
 }
 
 .playButton {
-  position: absolute;
-  background: #f2a63b;
-  top: 20px;
-  right: 20px;
-  width: 110px;
+  display: block;
+  background: #d03bf2;
+  margin-top: 3%;
+  margin-left: 5%;
+  width: 90%;
+  height: 90%;
+}
+
+.wordsButton {
+  display: block;
+  background: #273879;
+  margin-top: 3%;
+  margin-left: 5%;
+  width: 90%;
+  height: 90%;
+}
+
+.recordButton {
+  display: block;
+  background: #47a816; 
+  margin-top: 3%;
+  margin-left: 5%;
+  width: 90%;
+  height: 90%;
 
 }
