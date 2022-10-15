@@ -63,14 +63,10 @@
   float: left;
   margin-right: 5%;
 }
-.gameContainer .boxPic1 {
-  background-color: #000;
-}
-.gameContainer .boxPic2 {
-  background-color: #999;
-}
+
+
 .gameContainer .boxPic3 {
-  background-color: #333;
+  /*required to keep the three divs with pictures in them in correct order*/
   margin-right: 0;
 }
 
@@ -118,4 +114,10 @@
   background: #4c3024;
   font-size: 30px;
   color: antiquewhite;
+}
+
+.logoImage {
+  vertical-align: top;
+  width: auto;
+  height: 100%;
 }
