@@ -87,7 +87,7 @@ function loadQuestions() {
     beatTheGame();
   }
 
-  //If there are less than three questions left
+  //If there are less than three questions left and all q's havent been answered
   if (remainingQuestions.length < 3 && correctAnswers.length < 9) {
     //console.log(JSON.stringify(correctAnswers));
     //pick a correct answer from the remaining questions
