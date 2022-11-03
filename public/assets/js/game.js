@@ -138,6 +138,7 @@ var allQuestions = [
 ];
 
 var correctAnswers = [];
+var correctAnswer;
 
 // Function for generating ints within a range
 //     Written by Olly
@@ -188,8 +189,8 @@ function playSound() {
 function loadQuestions() {
   // pick three questions from the list of all questions.
   var currentQuestions = getRandoms(allQuestions, 3);
-  console.log(currentQuestions);
-  var correctAnswer = currentQuestions[getRandomInt(0, 2)];
+  //console.log(currentQuestions);
+  correctAnswer = currentQuestions[getRandomInt(0, 2)];
   //console.log(correctAnswer);
 
   // Display word associated with current correct answer
@@ -201,16 +202,21 @@ function loadQuestions() {
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value);
 
-  let str1 = '<input class="picButton" type="image" src="./images/';
-  let str2 = '" width="325" height="325"/>';
+  let params = '<input class="picButton" type="image" src="./images/';
   var pic = 1;
   randomOrderedQuestions.forEach((question) => {
-    document.getElementById(`pic${pic}`).innerHTML = str1 + question.img + str2;
+    let dimensions = `" width="325" height="325" onclick="choose('${question.name}')""/>`;
+    document.getElementById(`pic${pic}`).innerHTML =
+      params + question.img + dimensions;
     pic += 1;
   });
 }
 
-function choose(selection) {}
+function choose(selection) {
+  console.log(selection);
+  console.log(correctAnswer);
+}
 
 // adding the event listeners to all buttons
 playButton.addEventListener("click", playSound, false);
+//let dimensions = `" width="325" height="325" onclick="choose('${question.name}', ${JSON.stringify(correctAnswer)})"/>`;
