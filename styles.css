@@ -1,0 +1,68 @@
+
+.navbar
+    {
+  
+    display: 90px;
+    align-items: center;
+    font-size: 3rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    
+    }
+
+body
+{
+    background-image:  url(/images/trail2.jpg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+   
+}
+img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    padding-top: 27%; 
+    filter: brightness(.50);
+
+}
+
+
+
+.navbar__links
+{
+color:black;
+display: flex;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+padding: 0 1 rem;
+border-width: 5px;
+height: 100%;
+text-shadow: 8px 8px 16px rgb(255, 255, 255);
+
+}
+.navbar__btn
+{
+display:flex;
+justify-content:center;
+align-items: center;
+padding: 0 1 rem;
+width: 100%;
+}
+.button:hover {
+    background-color: #f77062;
+    transition: all 0.3s ease;
+    
+}    
+.navbar__links:hover{
+   color: #f77062;
+
+}
+
