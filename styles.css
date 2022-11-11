@@ -13,7 +13,7 @@
 
 body
 {
-    background-image:  url(/images/trail2.jpg.jpg);
+    background-image:  url('./game/pics/trail2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -28,7 +28,7 @@ img
     justify-content: center;
     align-items: center;
     height: 200px;
-    padding-top: 27%; 
+    padding-top: 15%; 
     filter: brightness(.50);
 
 }
@@ -65,4 +65,3 @@ width: 100%;
    color: #f77062;
 
 }
-

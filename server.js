@@ -20,7 +20,7 @@ const headers = {
     "Access-Control-Max-Age": 2592000, // 30 days
     /** add other headers as per requirement */
   }
-
+/*
 let dataObj = {aqq:{right:0,wrong:0},
             eliey:{right:0,wrong:0},
             kesalk:{right:0,wrong:0},
@@ -30,7 +30,7 @@ let dataObj = {aqq:{right:0,wrong:0},
             nin:{right:0,wrong:0},
             teluisi:{right:0,wrong:0},
             wiktm:{right:0,wrong:0}}
-
+*/
 // credential string elements
 let head = "mongodb://";
 let user = "group23C";
