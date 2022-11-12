@@ -199,5 +199,19 @@ function beatTheGame() {
   loadQuestions();
 }
 
+/*
+  Function to hide all elements it receives
+*/
+function hideElement(elements) {
+  for (let i = 0; i < elements.length; i++) {
+    var e = document.getElementById(elements[i]);
+    if (e.style.display === "none") {
+      e.style.display = "block";
+    } else {
+      e.style.display = "none";
+    }
+  }
+}
+
 // adding the event listener to playSound button
 playButton.addEventListener("click", playSound, false);

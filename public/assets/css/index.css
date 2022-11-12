@@ -64,7 +64,6 @@
   margin-right: 5%;
 }
 
-
 .gameContainer .boxPic3 {
   /*required to keep the three divs with pictures in them in correct order*/
   margin-right: 0;
@@ -120,4 +119,42 @@
   vertical-align: top;
   width: auto;
   height: 100%;
+}
+
+.titlePageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-image: url("../images/titlePage/trail2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title {
+  z-index: -1;
+  margin: auto;
+  text-align: center;
+  color: black;
+  text-shadow: 8px 8px 16px rgb(255, 255, 255);
+  font-size: 3rem;
+}
+
+.title:hover {
+  color: #f77062;
+  transition: all 0.3s ease;
+}
+
+.titleImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding-top: 15%;
+  filter: brightness(0.5);
 }

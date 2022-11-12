@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mik'tionary</title>
@@ -15,9 +29,29 @@
       crossorigin="anonymous"
     />
     <link href="/css/index.css" rel="stylesheet" />
-    
   </head>
   <body class="pageContainer" onload="loadQuestions()">
+    <!--Div for tite page that consumes entire screen until it is clicked-->
+    <!--onclick="hideElement('title')"-->
+    <div class="titlePageContainer" id="titlePage">
+      <div
+        class="title"
+        id="title"
+        onclick="hideElement(['title', 'titlePage', 'door'])"
+      >
+        Glusuaqan Gepaqs'te'g
+      </div>
+
+      <div class="titleImage" id="door">
+        <img
+          src="/images/titlePage/capture.jpg"
+          alt="Door"
+          class="img-fluid"
+          onclick="hideElement(['title', 'titlePage', 'door'])"
+        />
+      </div>
+    </div>
+
     <div class="headerContainer">
       <!--div for settings button-->
       <div>
