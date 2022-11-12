@@ -1,3 +1,7 @@
+//server variables
+const SERVER_URL = "https://140.184.230.209:3000";
+const PORT = 4223;
+
 const recordButton = document.getElementById("recordButton");
 const stopRecordingButton = document.getElementById("stopRecording");
 const listenRecordingButton = document.getElementById("listenRecording");
@@ -96,11 +100,14 @@ function discardRecording() {
   }
 }
 
-function saveRecording() {}
+function saveAudio() {
+  $.post(SERVER_URL + "/saveAudio", "test");
+  console.log("here");
+}
 
 // adding the event listener to playSound button
 recordButton.addEventListener("click", record, false);
 discardRecordingButton.addEventListener("click", discardRecording, false);
 stopRecordingButton.addEventListener("click", stopRecording, false);
 listenRecordingButton.addEventListener("click", playRecording, false);
-saveRecordingButton.addEventListener("click", saveRecording, false);
+saveRecordingButton.addEventListener("click", saveAudio, false);

@@ -23,7 +23,7 @@ var remainingQuestions = JSON.parse(JSON.stringify(allQuestions));
 var correctAnswers = [];
 //variable to hod current correct answer (changes each round)
 var correctAnswer;
-//variavle to hold the list containing the current questions being asked each round.
+//variable to hold the list containing the current questions being asked each round.
 var currentQuestions;
 
 // Function for generating ints within a range
