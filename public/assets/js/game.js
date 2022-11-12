@@ -197,19 +197,20 @@ function beatTheGame() {
 
   //reload questions
   loadQuestions();
+  //Show the title page upon getting all questions right
+  var titlePage = document.getElementById("titlePage");
+  titlePage.style.display = "block";
 }
 
 /*
-  Function to hide all elements it receives
-*/
-function hideElement(elements) {
-  for (let i = 0; i < elements.length; i++) {
-    var e = document.getElementById(elements[i]);
-    if (e.style.display === "none") {
-      e.style.display = "block";
-    } else {
-      e.style.display = "none";
-    }
+  Hide the element passed to function
+ */
+function hideElement(element) {
+  var e = document.getElementById(element);
+  if (e.style.display === "none") {
+    e.style.display = "block";
+  } else {
+    e.style.display = "none";
   }
 }
 
