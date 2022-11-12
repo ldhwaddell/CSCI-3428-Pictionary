@@ -158,3 +158,93 @@
   padding-top: 15%;
   filter: brightness(0.5);
 }
+
+.recordingButtonsContainer {
+  display: none;
+  background-color: #f2a63b;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 400px;
+  height: 400px;
+  outline: 5px solid #d25753;
+
+}
+
+.displayWord {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4c3024;
+  font-size: 30px;
+  color: antiquewhite;
+  width: 150px;
+  height: 80px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  outline: 5px solid #d25753;
+}
+
+.stopRecordingButton{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-65%);
+  width: 150px;
+  height: 80px;
+  margin-left: 30px;
+  outline: 5px solid #d25753;
+  background-color: #4c3024;
+  font-size: 25px;
+  color: antiquewhite;
+}
+
+
+.listenRecordingButton{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-65%);
+  width: 150px;
+  height: 80px;
+  outline: 5px solid #d25753;
+  background-color: #4c3024;
+  font-size: 25px;
+  color: antiquewhite;
+  margin-left: 215px;
+}
+
+.saveRecordingButton{
+  margin: 0;
+  position: absolute;
+  width: 150px;
+  height: 80px;
+  margin-left: 30px;
+  outline: 5px solid #d25753;
+  background-color: #4c3024;
+  font-size: 25px;
+  color: antiquewhite;
+  top: 80%;
+  transform: translateY(-70%);
+}
+
+.discardRecordingButton{
+  margin: 0;
+  position: absolute;
+  width: 150px;
+  height: 80px;
+  margin-left: 30px;
+  outline: 5px solid #d25753;
+  background-color: #4c3024;
+  font-size: 25px;
+  color: antiquewhite;
+  top: 80%;
+  transform: translateY(-70%);
+  margin-left: 215px;
+
+}
+

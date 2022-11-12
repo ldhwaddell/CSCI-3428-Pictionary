@@ -80,17 +80,17 @@
           <img
             src="/images/icons/logo.png"
             alt="Record"
-            class="recordButtonImage"
-            id="recordButtonImage"
+            class="logoImage"
+            id="logoImage"
           />
         </div>
-        <div class="boxRecord">
+        <div class="boxRecord" id="recordButton">
           <button class="btn recordButton">
             <img
               src="/images/icons/microphone.png"
               alt="Record"
-              class="logoImage"
-              id="logoImage"
+              class="recordButtonImage"
+              id="recordButtonImage"
             />
           </button>
         </div>
@@ -103,6 +103,15 @@
       <div class="boxPic1" id="pic1"></div>
       <div class="boxPic2" id="pic2"></div>
       <div class="boxPic3" id="pic3"></div>
+    </div>
+
+    <!--Div for the popup when user hits record button-->
+    <div class="recordingButtonsContainer" id="recordingButtons">
+      <div class="displayWord" id="displayWord"></div>
+      <button class="stopRecordingButton" id="stopRecording">Stop Recording</button>
+      <button class="listenRecordingButton" id="listenRecording">Listen</button>
+      <button class="saveRecordingButton" id="saveRecording">Save Recording</button>
+      <button class="discardRecordingButton" id="discardRecording">Discard Recording</button>      
     </div>
     <script src="/js/game.js"></script>
   </body>

@@ -103,7 +103,7 @@ function resetRecording() {
     recordedAudioContainer.classList.add("d-none");
     recordedAudioContainer.classList.remove("d-flex");
   }
-  //empty blob fo rnext recording
+  //empty blob for next recording
   audioBlob = null;
 }
 
