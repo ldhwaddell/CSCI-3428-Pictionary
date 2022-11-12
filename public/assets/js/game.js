@@ -1,16 +1,5 @@
 //file for the game logic
 const playButton = document.getElementById("playButton");
-const recordButton = document.getElementById("recordButton");
-
-const stopRecordingButton = document.getElementById("stopRecording");
-const listenRecordingButton = document.getElementById("listenRecording");
-const saveRecordingButton = document.getElementById("saveRecording");
-const discardRecordingButton = document.getElementById("discardRecording");
-
-// variables required for the saving of audio
-let chunks = [];
-let mediaRecorder = null;
-let audioBlob = null; //blob that holds recorded audio
 
 // Global array containing 9 objects containing image files.
 const allQuestions = [
@@ -225,65 +214,5 @@ function hideElement(element) {
   }
 }
 
-//Triggered when a recording is done.
-//When called, handled dataavailable event by pushing the blob on to the chunks array
-function mediaRecorderDataAvailable(e) {
-  chunks.push(e.data);
-}
-
-function record() {
-  //check if browser supports getUserMedia for recording
-  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-    alert("Your browser does not support recording!");
-    return;
-  }
-  // if media recorder is false, start recording
-  if (!mediaRecorder) {
-    navigator.mediaDevices
-      .getUserMedia({
-        //only record audio
-        audio: true,
-      })
-      //if success, then do:
-      .then((stream) => {
-        //browser prompts user here
-        mediaRecorder = new MediaRecorder(stream);
-        mediaRecorder.start();
-        //binding event handlers dataavailable and stop
-        mediaRecorder.ondataavailable = mediaRecorderDataAvailable;
-        mediaRecorder.onstop = mediaRecorderStop;
-      })
-      //catch any errors or deal with user denying mic access
-      .catch((err) => {
-        alert(`The following error occurred: ${err}`);
-      });
-  } else {
-    // stop recording
-    mediaRecorder.stop();
-  }
-}
-
-function recordSound() {
-  // Display recording buttons
-  document.getElementById("recordingButtons").style.display = "block";
-  // Put current word on display
-  document.getElementById("displayWord").innerHTML = correctAnswer.name;
-
-  // Start recording
-  record();
-}
-
-function discardRecording() {
-  // confirm user wants to delete
-  if (confirm("Are you sure you want to discard the recording?")) {
-    //call function to reset recording
-    //$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$5
-  }
-  //Hide buttons
-  document.getElementById("recordingButtons").style.display = "none";
-}
-
 // adding the event listener to playSound button
 playButton.addEventListener("click", playSound, false);
-recordButton.addEventListener("click", recordSound, false);
-discardRecordingButton.addEventListener("click", discardRecording, false);
