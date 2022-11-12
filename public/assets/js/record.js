@@ -89,13 +89,16 @@ function discardRecording() {
   if (confirm("Are you sure you want to discard the recording?")) {
     //Empty the audio blob
     audioBlob = null;
+    //Hide buttons
+    document.getElementById("recordingButtons").style.display = "none";
   }
-  //Hide buttons
-  document.getElementById("recordingButtons").style.display = "none";
 }
+
+function saveRecording() {}
 
 // adding the event listener to playSound button
 recordButton.addEventListener("click", record, false);
 discardRecordingButton.addEventListener("click", discardRecording, false);
 stopRecordingButton.addEventListener("click", stopRecording, false);
 listenRecordingButton.addEventListener("click", playRecording, false);
+saveRecordingButton.addEventListener("click", saveRecording, false);
