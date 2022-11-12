@@ -86,7 +86,7 @@ function playRecording() {
 
 function discardRecording() {
   //Check to see if recoding needs to be stopped
-  stopRecording()
+  stopRecording();
   // confirm user wants to delete
   if (confirm("Are you sure you want to discard the recording?")) {
     //Empty the audio blob

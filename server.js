@@ -99,8 +99,8 @@ server;
 
 /**
  *
- * @param {name of picture} name
- * @param {response object} res
+ * //@param {picture} name
+ * //@param {response object} res
  */
 function getPhoto(name, res) {
   //read file from directory

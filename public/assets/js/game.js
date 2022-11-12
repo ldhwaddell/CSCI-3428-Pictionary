@@ -71,7 +71,7 @@ function playSound() {
     (element) => element.name == activeWord
   ).audio;
   //play the audio
-  let audio = new Audio(`./audioFiles/${audioName}`);
+  let audio = new Audio(`./assets/audioFiles/${audioName}`);
   audio.play();
 }
 
@@ -132,7 +132,7 @@ function loadQuestions() {
     .map(({ value }) => value);
 
   // logic for insertion of the three chosen pictures into the game
-  let params = '<input class="picButton" type="image" src="./images/';
+  let params = '<input class="picButton" type="image" src="./assets/images/';
   var picNum = 1;
   //iterate through the randomly ordered list of questions
   randomOrderedQuestions.forEach((question) => {

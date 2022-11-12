@@ -4,21 +4,21 @@
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="/favicon/apple-touch-icon.png"
+      href="./assets/favicon/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/favicon/favicon-32x32.png"
+      href="./assets/favicon/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/favicon/favicon-16x16.png"
+      href="./assets/favicon/favicon-16x16.png"
     />
-    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mik'tionary</title>
@@ -28,23 +28,19 @@
       integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
       crossorigin="anonymous"
     />
-    <link href="/css/index.css" rel="stylesheet" />
+    <link href="./assets/css/index.css" rel="stylesheet" />
   </head>
   <body class="pageContainer" onload="loadQuestions()">
     <!--Div for tite page that consumes entire screen until it is clicked-->
     <!--onclick="hideElement('title')"-->
     <div class="titlePageContainer" id="titlePage">
-      <div
-        class="title"
-        id="title"
-        onclick="hideElement('titlePage')"
-      >
+      <div class="title" id="title" onclick="hideElement('titlePage')">
         Glusuaqan Gepaqs'te'g
       </div>
 
       <div class="titleImage" id="door">
         <img
-          src="/images/titlePage/capture.jpg"
+          src="./assets/images/titlePage/capture.jpg"
           alt="Door"
           class="img-fluid"
           onclick="hideElement('titlePage')"
@@ -57,7 +53,7 @@
       <div>
         <button class="btn settingsButton">
           <img
-            src="/images/icons/settings.png"
+            src="./assets/images/icons/settings.png"
             alt="Settings"
             class="img-fluid"
             id="settingsButtonImage"
@@ -69,7 +65,7 @@
         <div class="boxPlay">
           <button class="btn playButton" id="playButton">
             <img
-              src="/images/icons/play.png"
+              src="./assets/images/icons/play.png"
               alt="Play"
               class="playButtonImage"
               id="playButtonImage"
@@ -78,7 +74,7 @@
         </div>
         <div class="boxLogo">
           <img
-            src="/images/icons/logo.png"
+            src="./assets/images/icons/logo.png"
             alt="Record"
             class="logoImage"
             id="logoImage"
@@ -87,7 +83,7 @@
         <div class="boxRecord" id="recordButton">
           <button class="btn recordButton">
             <img
-              src="/images/icons/microphone.png"
+              src="./assets/images/icons/microphone.png"
               alt="Record"
               class="recordButtonImage"
               id="recordButtonImage"
@@ -108,15 +104,19 @@
     <!--Div for the popup when user hits record button-->
     <div class="recordingButtonsContainer" id="recordingButtons">
       <div class="displayWord" id="displayWord"></div>
-      <button class="stopRecordingButton" id="stopRecording">Stop Recording</button>
+      <button class="stopRecordingButton" id="stopRecording">
+        Stop Recording
+      </button>
       <button class="listenRecordingButton" id="listenRecording">Listen</button>
-      <button class="saveRecordingButton" id="saveRecording">Save Recording</button>
-      <button class="discardRecordingButton" id="discardRecording">Discard Recording</button>      
+      <button class="saveRecordingButton" id="saveRecording">
+        Save Recording
+      </button>
+      <button class="discardRecordingButton" id="discardRecording">
+        Discard Recording
+      </button>
     </div>
-    <script src="/js/game.js"></script>
-    <script src="/js/record.js"></script>
-
-
+    <script src="./assets/js/game.js"></script>
+    <script src="./assets/js/record.js"></script>
   </body>
 </html>
 
