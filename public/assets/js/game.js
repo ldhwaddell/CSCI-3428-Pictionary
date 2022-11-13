@@ -1,7 +1,17 @@
-//file for the game logic
+/*
+  The purpose of this file is to contain the logic required for the pictionary
+  game. It randomizes the selection of questions, displays them, and deals with
+  guessing. 
+
+  Authors: 
+ */
+
+// Getting necessary HTML element
 const playButton = document.getElementById("playButton");
 
 // Global array containing 9 objects containing image files.
+// This is never manipulated and serves as the comprehensive list
+// of questions
 const allQuestions = [
   { id: "0", name: "aqq", img: "aqq.jpg", audio: "aqq.wav" },
   { id: "1", name: "eliey", img: "eliey.jpg", audio: "eliey.wav" },
@@ -14,26 +24,29 @@ const allQuestions = [
   { id: "8", name: "wiktm", img: "wiktm.jpg", audio: "wiktm.wav" },
 ];
 
-//make a copy of all the questions to manipulate freely.
-//This way, when user beats the game, we can reset the array contaiing all the questions
+//Make a copy of all the questions to manipulate freely.
+//This way, when user beats the game, we can reset the array containing all the questions
 //and do not need to worry about destructive manipulation.
 var remainingQuestions = JSON.parse(JSON.stringify(allQuestions));
 
 //variable instantiation. Plurals are lists.
 var correctAnswers = [];
-//variable to hod current correct answer (changes each round)
+//variable to hold current correct answer (changes each round)
 var correctAnswer;
 //variable to hold the list containing the current questions being asked each round.
 var currentQuestions;
 
-// Function for generating ints within a range
-//     Author: Olly Macdonald
+/*
+  The purpose of this function is to generate random integers within a range
+
+  Author: Olly Macdonald
+*/
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
 /*
-  function to get n random elements from an array without having
+  The purpose of this function is to get n random elements from an array without having
   any destructive effects on the original array.
   The ... (spread syntax) is used to create a copy of the array that we
   want to pick elements from. The sort function gets passed an arrow function that 
@@ -59,15 +72,20 @@ function getRandoms(questions, n) {
   return randomized.slice(0, n);
 }
 
+/*
+  The purpose of this function of the find the desired element in
+  the array of remaining questions based on a value. It searches for the element 
+  whos name is the desired value, then returns the value of the user specified key.
+ */
 function findElement(key, val) {
-  var audioName = remainingQuestions.find((element) => element.name == val)[
-    key
-  ];
-  return audioName;
+  return remainingQuestions.find((element) => element.name == val)[key];
 }
 
 /*
   The purpose of this function is to play the audio clip for the current word.
+  It checks if the audio clip is just a reference to a .wav file, or if it is an
+  audioURL that the user has created.
+
   Author: Lucas Waddell
 */
 function playSound() {
@@ -88,7 +106,17 @@ function playSound() {
 
 /*
   The purpose of this function is to load the questions for the user. 
-  It is first loaded at runtime and then gets called again should the user pick the correct answer. 
+  It is first loaded at runtime and then gets called again should the 
+  user pick the correct answer. It checks if the user got all the questions right, and
+  will reuse pictures that have already been guessed correctly when the user only has 1 or 2
+  questions left. 
+
+  To load the questions, the function picks 3 random questions from the users remaiming
+  questions. It then picks a random integer between 0 and 2, and assigns that element to be
+  the correct answer for this round. The middle of the screen then displays the name of the 
+  correct answer. These three questions then get put in a random order. This ensure that 
+  the correct question will not always be in the same box. Lastly, the three questions get
+  injected into the html.
 
   Authors: Olly Macdonald, Lucas Waddell
 */
@@ -100,26 +128,18 @@ function loadQuestions() {
 
   //If there are less than three questions left and all q's havent been answered
   if (remainingQuestions.length < 3 && correctAnswers.length < 9) {
-    //console.log(JSON.stringify(correctAnswers));
-    //pick a correct answer from the remaining questions
-
     //pick a correct answer from the remaining questions
     correctAnswer =
       remainingQuestions[getRandomInt(0, remainingQuestions.length - 1)];
-    //console.log(`correct answer is: ${JSON.stringify(correctAnswer)}`)
 
     //Determine how many questions will need to be added to the current remaining ones
     var numQuestionsToAdd = 3 - remainingQuestions.length;
-    //console.log(`questions to add: ${numQuestionsToAdd}`);
 
     //pick however many questions at random from ones user has already gotten correct
     var questionsToAdd = getRandoms(correctAnswers, numQuestionsToAdd);
-    //console.log(`questions to add from correct ones are: ${JSON.stringify(questionsToAdd)}`);
 
     //push those questions onto the array of remaining questions
     remainingQuestions.push(questionsToAdd[0]);
-
-    //console.log(`remaining questions are now: ${JSON.stringify(remainingQuestions)}`);
 
     //set the current questions equal to the remaining questions
     currentQuestions = remainingQuestions;
@@ -144,7 +164,7 @@ function loadQuestions() {
 
   // logic for insertion of the three chosen pictures into the game
   let params = '<input class="picButton" type="image" src="./assets/images/';
-  var picNum = 1;
+  let picNum = 1;
   //iterate through the randomly ordered list of questions
   randomOrderedQuestions.forEach((question) => {
     let dimensions = `" width="325" height="325" onclick="choose('${question.name}')""/>`;
@@ -155,8 +175,11 @@ function loadQuestions() {
 }
 
 /*
-  Function to remove a desired JSON object from a JSON array.
-  User supplies the array to remove and the name of the element to remove
+  The purpose of this function is to removed a desired JSON object from a JSON array.
+  The index of the element to be removed is found and if that value is not undefined, 
+  it gets spliced out of the array. 
+
+  Author: 
 */
 function removeElement(arr, answer) {
   const indexToRemove = arr.findIndex((element) => element.name === answer);
@@ -166,11 +189,11 @@ function removeElement(arr, answer) {
 }
 
 /*
-  Function called each time the user clicks on a picture. 
-  If the selection is correct, we push the correct answer onto
-  the list of questions they have gotten correctly, then we remove
-  this question from the list of remaining questions to that it will 
-  not be asked again. 
+  The purpose of this function is to allow the user to make guesses. 
+  If the user makes a correct guess, the questions is removed from the list of 
+  remaining questions and added to the list of answers they have gotten correct. 
+
+  Author: Sebastian Cox, Lucas Waddell
 */
 function choose(selection) {
   if (selection == correctAnswer.name) {
@@ -195,9 +218,11 @@ function choose(selection) {
 }
 
 /*
-  Display alert once user beats the game (list of correct answer has length of 9)
-  This should probably use a modal that has buttons for yes or no. Could also display 
-  some fun graphics or play a congratulatory noise or something idk 
+  The purpose of this function is to let the user know they have gotten
+  every question correct. Once this happens, it empties their list of correct answers, 
+  resets the array of remaining questions they have, and sends the user back to the title page. 
+
+  Author: Clifford Brown, Lucas Waddell
 */
 function beatTheGame() {
   alert("Woo hoo!! you won the game. Click ok to restart or close this page");
@@ -214,7 +239,10 @@ function beatTheGame() {
 }
 
 /*
-  Hide the element passed to function
+  The purpose of this function is to hide any element that gets
+  passed to it. 
+
+  Author: Lucas Waddell
  */
 function hideElement(element) {
   var e = document.getElementById(element);

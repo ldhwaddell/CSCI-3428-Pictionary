@@ -1,7 +1,7 @@
 /*
   The purpose of this file is to enable the user to record their own
   audio clips. Audio clips are saved client side for ease of access and to ensure
-  that eistence is non-persistent. 
+  that existence is non-persistent. 
 
   Authors: 
  */
