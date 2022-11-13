@@ -1,6 +1,6 @@
 //server variables
-const SERVER_URL = "https://140.184.230.209:3000";
-const PORT = 4223;
+const SERVER_URL =
+  "https://ugdev.cs.smu.ca/~group23C/CSCI-3428-Pictionary/public/:3000";
 
 const recordButton = document.getElementById("recordButton");
 const stopRecordingButton = document.getElementById("stopRecording");
