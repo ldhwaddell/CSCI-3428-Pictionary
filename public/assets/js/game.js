@@ -59,6 +59,13 @@ function getRandoms(questions, n) {
   return randomized.slice(0, n);
 }
 
+function findElement(key, val) {
+  var audioName = remainingQuestions.find((element) => element.name == val)[
+    key
+  ];
+  return audioName;
+}
+
 /*
   The purpose of this function is to play the audio clip for the current word.
   Author: Lucas Waddell
@@ -67,12 +74,16 @@ function playSound() {
   // get activeWord container
   const activeWord = document.getElementById("activeWord").textContent;
   //find the value for the audio key where the elements name is the active word
-  var audioName = remainingQuestions.find(
-    (element) => element.name == activeWord
-  ).audio;
-  //play the audio
-  let audio = new Audio(`./assets/audioFiles/${audioName}`);
-  audio.play();
+  var audioName = findElement("audio", activeWord);
+
+  // check if audio is url or wav file
+  let audio = audioName.includes(".wav")
+    ? new Audio(`./assets/audioFiles/${audioName}`)
+    : new Audio(audioName);
+  audio.play().catch((err) => {
+    console.log(err);
+    alert("There was an error. please try again later");
+  });
 }
 
 /*
