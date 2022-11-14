@@ -246,6 +246,7 @@
 }
 
 .correctAnswer {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -256,9 +257,28 @@
 }
 
 .successImage {
-  display: block;
+  display: none;
   margin-left: auto;
   margin-right: auto;
-  height: 90%;
+  height: 95%;
+  width: auto;
+}
+
+.incorrectAnswer {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.mistakeImage {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  height: 95%;
   width: auto;
 }

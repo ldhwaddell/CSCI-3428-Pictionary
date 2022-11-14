@@ -8,6 +8,8 @@
 
 // Getting necessary HTML element
 const playButton = document.getElementById("playButton");
+const successImage = document.getElementById("successImage");
+const mistakeImage = document.getElementById("mistakeImage");
 
 // Global array containing 9 objects containing image files.
 // This is never manipulated and serves as the comprehensive list
@@ -203,17 +205,15 @@ function choose(selection) {
     //remove question from all questions
     removeElement(remainingQuestions, selection);
 
-    //let user know they got it right
-    //instead of alerts these could be function calls to create modals
-    alert("Congratulations!!");
-
-    // reload the questions
-    loadQuestions();
+    //show success image
+    var successDiv = document.getElementById("correctAnswer");
+    successDiv.style.display = "block";
+    successImage.style.display = "block";
   } else {
-    //Could maybe put the logic here to deal with prioritizing words
-
-    //instead of alerts these could be function calls to create modals
-    alert("Please Try Again");
+    //show mistake photo
+    var mistakeDiv = document.getElementById("incorrectAnswer");
+    mistakeDiv.style.display = "block";
+    mistakeImage.style.display = "block";
   }
 }
 
@@ -253,5 +253,26 @@ function hideElement(element) {
   }
 }
 
+/*
+  Wrapper for the hide element function to add into the correct event listener.
+  This way when user clicks the animal, it will disappear along with the div
+ */
+function hideSuccess() {
+  hideElement("successImage");
+  hideElement("correctAnswer");
+  loadQuestions();
+}
+
+/*
+  Wrapper for the hide element function to add into the event mistake listener.
+  This way when user clicks the animal, it will disappear along with the div
+ */
+function hideMistake() {
+  hideElement("mistakeImage");
+  hideElement("incorrectAnswer");
+}
+
 // adding the event listener to playSound button
 playButton.addEventListener("click", playSound, false);
+successImage.addEventListener("click", hideSuccess, false);
+mistakeImage.addEventListener("click", hideMistake, false);
