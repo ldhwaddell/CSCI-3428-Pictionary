@@ -171,7 +171,6 @@
   width: 400px;
   height: 400px;
   outline: 5px solid #d25753;
-
 }
 
 .displayWord {
@@ -191,7 +190,7 @@
   outline: 5px solid #d25753;
 }
 
-.stopRecordingButton{
+.stopRecordingButton {
   position: absolute;
   top: 50%;
   transform: translateY(-65%);
@@ -204,8 +203,7 @@
   color: antiquewhite;
 }
 
-
-.listenRecordingButton{
+.listenRecordingButton {
   position: absolute;
   top: 50%;
   transform: translateY(-65%);
@@ -218,7 +216,7 @@
   margin-left: 215px;
 }
 
-.saveRecordingButton{
+.saveRecordingButton {
   margin: 0;
   position: absolute;
   width: 150px;
@@ -232,7 +230,7 @@
   transform: translateY(-70%);
 }
 
-.discardRecordingButton{
+.discardRecordingButton {
   margin: 0;
   position: absolute;
   width: 150px;
@@ -245,6 +243,22 @@
   top: 80%;
   transform: translateY(-70%);
   margin-left: 215px;
-
 }
 
+.correctAnswer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.successImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 90%;
+  width: auto;
+}
