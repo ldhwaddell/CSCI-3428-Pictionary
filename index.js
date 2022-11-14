@@ -1,6 +1,3 @@
-//logic for aspects of recording provided by SitePoint for free use under the MIT license
-// Examples can be found here: https://www.sitepoint.com/mediastream-api-record-audio/
-
 const path = require("path"); // allow access to env
 const express = require("express");
 const app = express(); //instantiate express app
@@ -33,7 +30,7 @@ async function instantiateServer() {
 
   // Function to tell us if the server is running, and what port it is running on
   app.listen(port, () => {
-    console.log(`Listening at http://localhost:${port}`);
+    console.log(`Listening at port ${port}`);
   });
 }
 
@@ -52,8 +49,8 @@ async function connectMongoDB() {
 }
 
 app.post("/saveAudio", function (req) {
-  console.log("ehrherhebviehbveivb");
-  console.log(req);
+  console.log("success");
+  console.log(req.body);
 });
 
 instantiateServer().catch(console.error);

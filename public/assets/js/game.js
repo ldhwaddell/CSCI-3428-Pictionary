@@ -6,8 +6,11 @@
   Authors: 
  */
 
+const SERVER_URL = "http://140.184.230.209:3000";
+
 // Getting necessary HTML element
 const playButton = document.getElementById("playButton");
+const settingsButton = document.getElementById("settingsButton");
 const successImage = document.getElementById("successImage");
 const mistakeImage = document.getElementById("mistakeImage");
 
@@ -253,6 +256,14 @@ function hideElement(element) {
   }
 }
 
+function settings() {
+  console.log("settings");
+  let obj = {
+    test: 1,
+  };
+  $.post(SERVER_URL + "/saveAudio", obj);
+}
+
 /*
   Wrapper for the hide element function to add into the correct event listener.
   This way when user clicks the animal, it will disappear along with the div
@@ -274,5 +285,9 @@ function hideMistake() {
 
 // adding the event listener to playSound button
 playButton.addEventListener("click", playSound, false);
+settingsButton.addEventListener("click", settings, false);
 successImage.addEventListener("click", hideSuccess, false);
 mistakeImage.addEventListener("click", hideMistake, false);
+
+
+//https://ugdev.cs.smu.ca/~group23C/CSCI-3428-Pictionary/
