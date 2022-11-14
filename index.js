@@ -1,3 +1,11 @@
+/*
+  To fix the http/https issues, can go to:
+  "chrome://flags/#unsafely-treat-insecure-origin-as-secure"
+  and add "http://ugdev.cs.smu.ca" to the list. This allows the http access
+  to be considered secure so recording works and we can communicate with the server. 
+
+*/
+
 const path = require("path"); // allow access to env
 const express = require("express");
 const app = express(); //instantiate express app
