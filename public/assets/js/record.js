@@ -1,32 +1,77 @@
-//logic for aspects of recording provided by SitePoint for free use under th eMIT license
-// Examples can be found here: https://www.sitepoint.com/mediastream-api-record-audio/
+/*
+  The purpose of this file is to enable the user to record their own
+  audio clips. Audio clips are saved client side for ease of access and to ensure
+  that existence is non-persistent. 
 
-// Elements needed from webpage
+  Authors: 
+ */
+
+//Getting HTML elements for the recording related buttons
 const recordButton = document.getElementById("recordButton");
-const recordButtonImage = document.getElementById("recordButtonImage");
-const recordedAudioContainer = document.getElementById(
-  "recordedAudioContainer"
-);
-const discardAudioButton = document.getElementById("discardButton");
-const saveAudioButton = document.getElementById("saveButton");
-const recordingsContainer = document.getElementById("recordings");
+const stopRecordingButton = document.getElementById("stopRecording");
+const listenRecordingButton = document.getElementById("listenRecording");
+const saveRecordingButton = document.getElementById("saveRecording");
+const discardRecordingButton = document.getElementById("discardRecording");
 
+// variables required for the saving of audio
 let chunks = [];
 let mediaRecorder = null;
-let audioBlob = null; //blob that holds recorded audio
+let audioBlob = null;
+var audioURL;
 
+/*
+  The purpose of this function is to push the data of audio 
+  as it is being recorded into the chunks array. This is bound to the 
+  mediaRecorder objects "ondataavailable" event
+
+  Authors: Lucas Waddell
+*/
+function mediaRecorderDataAvailable(e) {
+  chunks.push(e.data);
+}
+
+/*
+  The purpose of this function is to create a new blob from the 
+  chunks array and then use this blob to create an object URL that can be accessed
+  and used to create the audio clip. After this, it destroys the mediarecorder 
+  object and empties the chunks. This is bound to the 
+  mediaRecorder objects "onstop" event
+
+  Authors: Lucas Waddell
+*/
+function mediaRecorderStop() {
+  // Create a new blob from the recorded audio chunks
+  audioBlob = new Blob(chunks, { type: "audio/mp3" });
+  audioURL = window.URL.createObjectURL(audioBlob);
+
+  //Empty mediaRecorder and chunks for future recordings
+  mediaRecorder = null;
+  chunks = [];
+}
+
+/*
+  The purpose of this function is to record the users audio. Once 
+  the microphone button is pressed, the users audio starts being recorded and
+  the recording buttons are displayed. Next a check is done to ensure
+  that the browser supports recording. This requires an HTTPS connection as
+  well as a supported browser. Should the user be able to create a recording, 
+  a check is done to ensure that a mediarecorder object does not already exist. 
+  If it does not, one is created and the audio starts being recorded. 
+  The functions described above are bound to the mediaRecorder object on events
+  to ensure that data can be saved and the user can stop recording. 
+
+  Authors: Lucas Waddell
+*/
 function record() {
-  console.log("clicked");
+  // Display recording buttons
+  document.getElementById("recordingButtons").style.display = "block";
+  // Put current word on display
+  document.getElementById("displayWord").innerHTML = correctAnswer.name;
   //check if browser supports getUserMedia for recording
   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
     alert("Your browser does not support recording!");
     return;
   }
-  // if it does, change microphone button to stop symbol as recording has started
-  //condition ? exprIfTrue : exprIfFalse
-  recordButtonImage.src = `/images/${
-    mediaRecorder && mediaRecorder.state === "recording" ? "microphone" : "stop"
-  }.png`;
   // if media recorder is false, start recording
   if (!mediaRecorder) {
     navigator.mediaDevices
@@ -46,162 +91,106 @@ function record() {
       //catch any errors or deal with user denying mic access
       .catch((err) => {
         alert(`The following error occurred: ${err}`);
-        // change image in button
-        recordButtonImage.src = "/images/microphone.png";
       });
   } else {
-    // stop recording
     mediaRecorder.stop();
   }
 }
 
-//Triggered when a recording is done.
-//When called, handled dataavailable event by pushing the blob on to the chunks array
-function mediaRecorderDataAvailable(e) {
-  chunks.push(e.data);
-}
-
-// called upon stopping the recording
-function mediaRecorderStop() {
-  //Check if any previous recordings have been left behind. if so, remove them
-  if (recordedAudioContainer.firstElementChild.tagName === "AUDIO") {
-    recordedAudioContainer.firstElementChild.remove();
+/*
+  The purpose of this function is to allow the user to stop recording.
+  It checks that a mediaRecorder currently exists, and if it does, it
+  stops it.
+  
+  Author: Lucas Waddell
+ */
+function stopRecording() {
+  //Check if a mediaRecorder exists
+  if (mediaRecorder) {
+    mediaRecorder.stop();
+  } else {
+    console.log("MediaRecorder has already stopped recording");
   }
-  // create new audio element to hold the recorded audio on html
-  const audioElm = document.createElement("audio");
-  audioElm.setAttribute("controls", ""); //add controls
-
-  // Create a new blob from the recorded audio chunks
-  audioBlob = new Blob(chunks, { type: "audio/mp3" });
-  const audioURL = window.URL.createObjectURL(audioBlob);
-  audioElm.src = audioURL;
-  // insert audio html element
-  recordedAudioContainer.insertBefore(
-    audioElm,
-    recordedAudioContainer.firstElementChild
-  );
-  recordedAudioContainer.classList.add("d-flex");
-  recordedAudioContainer.classList.remove("d-none");
-  //Empty mediaRecorder and chunks for future recordings
-  mediaRecorder = null;
-  chunks = [];
 }
 
+/*
+  The purpose of this function is to allow the user to listen to the
+  recording they just made without having to save it. It creates a new audio 
+  object from the audioURL that was created when the user stopped recording.
+  It then plays the recording and catches any errors. 
+  
+  Author: Lucas Waddell
+ */
+function playRecording() {
+  //Create a new audio object from the blob and play it
+  let audio = new Audio(audioURL);
+  //Play it
+  audio.play().catch((err) => {
+    console.log(err);
+    alert("There was an error. please try again later");
+  });
+}
+
+/*
+  The purpose if this function is to discard the recording the user
+  just made if they decide they do not like it. Upon pressing the button
+  a check is done to stop the recording if the user had not yet stopped it. 
+  The user is then asked to confirm that they want to discard the recording. 
+  If they choose yes, the audioBlob is destroyed and the recording buttons
+  are hidden.
+  
+  Author: Lucas Waddell
+ */
 function discardRecording() {
+  //Check to see if recoding needs to be stopped
+  stopRecording();
   // confirm user wants to delete
   if (confirm("Are you sure you want to discard the recording?")) {
-    resetRecording();
+    //Empty the audio blob
+    audioBlob = null;
+    //Hide buttons
+    document.getElementById("recordingButtons").style.display = "none";
   }
 }
 
-function resetRecording() {
-  //if first item in audio container has audio tag
-  if (recordedAudioContainer.firstElementChild.tagName === "AUDIO") {
-    //remove it
-    recordedAudioContainer.firstElementChild.remove();
-    //hide recorded audio buttons
-    recordedAudioContainer.classList.add("d-none");
-    recordedAudioContainer.classList.remove("d-flex");
-  }
-  //empty blob fo rnext recording
-  audioBlob = null;
-}
-
-function saveRecording() {
-  // create formData object
-  const formData = new FormData();
-  //add recording (the blob) to FormData obj
-  formData.append("audio", audioBlob, "recording.mp3");
-  //send request to server
-  fetch("/record", {
-    method: "POST",
-    body: formData,
-  })
-    //convert response to the response.json value
-    .then((response) => response.json())
-    .then(() => {
-      resetRecording();
-      //fetch recordings
-      fetchRecordings();
-    })
-    .catch((err) => {
-      console.log(err);
-      alert("There was an error. please try again later");
-      resetRecording();
-    });
-}
-
-//Get all recordings from the uplaods folder for the user
-function fetchRecordings () {
-    fetch("/recordings")
-    .then((response) => response.json())
-    .then((response) => {
-      //if the response was a success and contains files
-      if (response.success && response.files) {
-        //remove all previous recordings shown
-        recordingsContainer.innerHTML = "";
-        response.files.forEach((file) => {
-          //create the recording element
-          const recordingElement = createRecordingElement(file);
-          //add it the the recordings container
-          recordingsContainer.appendChild(recordingElement);
-        })
-      }
-    })
-    .catch((err) => console.error(err));
-  }
+/*
+  The purpose of this function is to allow the user to save the audio
+  clip to serve as the new sound for the current question. A check is first done
+  to stop the recording if it hasnt been stopped yet. Next the current word to guess is 
+  found (activeWord). If the user confirms they want to save the recording, the 
+  list of remaining questions gets iterated over until the element that has the name
+  that is equal to our activeWord is found. Once this happend, the audio of this element is
+  then updated and the loop gets broken out of. After the element has been saved, the 
+  audioBlob is destroyed and the recording buttons are hidden. 
   
-  //create the recording button
-  function createRecordingElement (file) {
-    //create the div
-    const recordingElement = document.createElement("div");
-    recordingElement.classList.add("col-lg-2", "col", "recording", "mt-3");
-    //audio element
-    const audio = document.createElement("audio");
-    audio.src = file;
-    audio.onended = (e) => {
-      //when the audio ends, change the image inside the button to play again
-      e.target.nextElementSibling.firstElementChild.src = "images/play.png";
-    };
-    recordingElement.appendChild(audio);
-    //button element
-    const playButton = document.createElement("button");
-    playButton.classList.add("play-button", "btn", "border", "shadow-sm", "text-center", "d-block", "mx-auto");
-    //image element inside button
-    const playImage = document.createElement("img");
-    playImage.src = "/images/play.png";
-    playImage.classList.add("img-fluid");
-    playButton.appendChild(playImage);
-    //add event listener to the button to play the recording
-    playButton.addEventListener("click", playRecording);
-    recordingElement.appendChild(playButton);
-    //return the container element
-    return recordingElement;
-  }
-  
-  function playRecording (e) {
-    let button = e.target;
-    if (button.tagName === "IMG") {
-      //get parent button
-      button = button.parentElement;
-    }
-    //get audio sibling
-    const audio = button.previousElementSibling;
-    if (audio && audio.tagName === "AUDIO") {
-      if (audio.paused) {
-        //if audio is paused, play it
-        audio.play();
-        //change the image inside the button to pause
-        button.firstElementChild.src = "images/pause.png";
-      } else {
-        //if audio is playing, pause it
-        audio.pause();
-        //change the image inside the button to play
-        button.firstElementChild.src = "images/play.png";
+  Author: Lucas Waddell
+ */
+function saveAudio() {
+  //make sure recording is stopped
+  stopRecording();
+  //get the active word
+  const activeWord = document.getElementById("activeWord").textContent;
+
+  if (confirm("Are you sure you want to save the recording?")) {
+    //iterate through list remaining questions until it finds the one that
+    //matches currect active activeWord, then update that audio to the audioURL
+    for (var i = 0; i < remainingQuestions.length; i++) {
+      if (remainingQuestions[i].name === activeWord) {
+        remainingQuestions[i].audio = audioURL;
+        break;
       }
     }
-  }
 
-recordButton.addEventListener("click", record);
-discardAudioButton.addEventListener("click", discardRecording);
-saveAudioButton.addEventListener("click", saveRecording);
+    //Empty the audio blob
+    audioBlob = null;
+    //Hide buttons
+    hideElement("recordingButtons");
+  }
+}
+
+// adding the event listener to all recording buttons
+recordButton.addEventListener("click", record, false);
+discardRecordingButton.addEventListener("click", discardRecording, false);
+stopRecordingButton.addEventListener("click", stopRecording, false);
+listenRecordingButton.addEventListener("click", playRecording, false);
+saveRecordingButton.addEventListener("click", saveAudio, false);
