@@ -13,7 +13,6 @@ let allowCrossDomain = function (req, res, next) {
   res.header("Access-Control-Allow-Headers", "Content-Type"); // accept only headers with this type
   next(); // middleware callback function required for processing
 };
-app.use(allowCrossDomain); // implement allowable domain characteristics
 
 // credential string elements
 let head = "mongodb://";
@@ -27,6 +26,7 @@ let connectionString =
 
 async function instantiateServer() {
   app.use(express.static("public/assets")); // expose the directory public/assets
+  app.use(allowCrossDomain); // implement allowable domain characteristics
 
   // Function to tell us if the server is running, and what port it is running on
   app.listen(port, () => {

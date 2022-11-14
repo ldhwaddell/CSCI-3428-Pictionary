@@ -289,5 +289,4 @@ settingsButton.addEventListener("click", settings, false);
 successImage.addEventListener("click", hideSuccess, false);
 mistakeImage.addEventListener("click", hideMistake, false);
 
-
 //https://ugdev.cs.smu.ca/~group23C/CSCI-3428-Pictionary/
