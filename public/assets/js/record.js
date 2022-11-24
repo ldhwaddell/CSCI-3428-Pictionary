@@ -50,6 +50,38 @@ function mediaRecorderStop() {
 }
 
 /*
+  The purpose of this function is to start a countdown to let the user know
+  that they are being recorded. This is bound to the record button and changes the 
+  text on screen to Starting and then counts down from three. Once the countdown reaches 0, 
+  the record functoin is called and the user start being recorded.
+
+  Author: 
+
+*/
+function recordingCountdown() {
+  // Get the html element to change text of
+  var timeLeftText = document.getElementById("activeWord");
+  timeLeftText.innerHTML = "Starting!";
+
+  var timeLeft = 3;
+  // Create a promise to ensure countdown reaches -
+  return new Promise((resolve, reject) => {
+    // Set interval to one second and start countdownTimer
+    var countdownTimer = setInterval(() => {
+      timeLeftText.innerHTML = `Recording in ${timeLeft}`;
+
+      // If timer reaches 0: reset, resolve promise, call record function
+      if (timeLeft <= 0) {
+        clearInterval(countdownTimer);
+        resolve(true);
+        record();
+      }
+      timeLeft--;
+    }, 1000);
+  });
+}
+
+/*
   The purpose of this function is to record the users audio. Once 
   the microphone button is pressed, the users audio starts being recorded and
   the recording buttons are displayed. Next a check is done to ensure
@@ -63,6 +95,9 @@ function mediaRecorderStop() {
   Authors: Lucas Waddell
 */
 function record() {
+  //Fix activeWord
+  document.getElementById("activeWord").innerHTML = correctAnswer.name;
+  console.log(correctAnswer.name);
   // Display recording buttons
   document.getElementById("recordingButtons").style.display = "block";
   // Put current word on display
@@ -189,7 +224,7 @@ function saveAudio() {
 }
 
 // adding the event listener to all recording buttons
-recordButton.addEventListener("click", record, false);
+recordButton.addEventListener("click", recordingCountdown, false);
 discardRecordingButton.addEventListener("click", discardRecording, false);
 stopRecordingButton.addEventListener("click", stopRecording, false);
 listenRecordingButton.addEventListener("click", playRecording, false);
