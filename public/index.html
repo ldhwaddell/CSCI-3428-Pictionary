@@ -1,45 +1,68 @@
+<!--
+Purpose: The purpose of this HTMl is to provide the famework for a game that will provide
+        a way for children to learn a new language
+
+Author(s) / Work Done: Sebastian Cox, Lucas Waddell, Olly MacDonald, Nicki Johnson, Clifford Brown
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!--Link to picture for favicon on apple devices-->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="./assets/favicon/apple-touch-icon.png"
     />
+    <!--Link to picture for favicon that is 32x32-->
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./assets/favicon/favicon-32x32.png"
     />
+    <!--Link to picture for favicon that is 16x16-->
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
       href="./assets/favicon/favicon-16x16.png"
     />
+    <!--Link to manifest for determining favicons-->
     <link rel="manifest" href="./assets/favicon/site.webmanifest" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mik'tionary</title>
+    <!-- 
+      Link to BootStrap for buttons
+    
+      Date: Oct 16
+      
+      Link: https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css
+      -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
       crossorigin="anonymous"
     />
+    <!--This is the external link to JQuery below in script SRC, or it can be 
+        found at: https://code.jquery.com/jquery-3.6.0.min.js.
+        It was used in conjunction with our skill testing questions. Essentially it is used
+        to make function calls easier. 
+    -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Link to the css style sheet for this page-->
     <link href="./assets/css/index.css" rel="stylesheet" />
   </head>
   <body class="pageContainer" onload="loadQuestions()">
-    <!--Div for tite page that consumes entire screen until it is clicked-->
-    <!--onclick="hideElement('title')"-->
+    <!--Div for title page that consumes entire screen until it is clicked-->
     <div class="titlePageContainer" id="titlePage">
       <div class="title" id="title" onclick="hideElement('titlePage')">
         Klusuaqn Kepaqs'te'k
       </div>
-
+      <!--This is the class for the clickable door on title page.-->
       <div class="titleImage" id="door">
+        <!--This is the location on the server where the title page is stored-->
         <img
           src="./assets/images/titlePage/capture.jpg"
           alt="Door"
@@ -48,11 +71,12 @@
         />
       </div>
     </div>
-
+    <!--The container to hold the play button, logo, record button, and settings button-->
     <div class="headerContainer">
       <!--div for settings button-->
       <div>
         <button class="btn settingsButton" id="settingsButton">
+          <!--Location of the image on the school server.-->
           <img
             src="./assets/images/icons/settings.png"
             alt="Settings"
@@ -65,6 +89,7 @@
       <div class="buttonsContainer">
         <div class="boxPlay">
           <button class="btn playButton" id="playButton">
+            <!--The location of the png for the play button.-->
             <img
               src="./assets/images/icons/play.png"
               alt="Play"
@@ -73,7 +98,9 @@
             />
           </button>
         </div>
+        <!--This is the div for the logo image button.-->
         <div class="boxLogo">
+          <!--The location of the logo png.-->
           <img
             src="./assets/images/icons/logo.png"
             alt="Record"
@@ -81,8 +108,10 @@
             id="logoImage"
           />
         </div>
+        <!--This is the div for the record button.-->
         <div class="boxRecord" id="recordButton">
           <button class="btn recordButton">
+            <!--The location of the record button png.-->
             <img
               src="./assets/images/icons/microphone.png"
               alt="Record"
@@ -93,6 +122,7 @@
         </div>
       </div>
     </div>
+    <!--Placeholder tag to contain the word for user to guess-->
     <div class="wordsContainer" id="activeWord"></div>
 
     <!--div for the three pictures the user can click-->
@@ -104,14 +134,19 @@
 
     <!--Div for the popup when user hits record button-->
     <div class="recordingButtonsContainer" id="recordingButtons">
+      <!--Placeholder tag for where the word is displayed in recording buttons popup-->
       <div class="displayWord" id="displayWord"></div>
+      <!--The button logic used for stop recording button.-->
       <button class="stopRecordingButton" id="stopRecording">
         Stop Recording
       </button>
+      <!--The button logic for listen button.-->
       <button class="listenRecordingButton" id="listenRecording">Listen</button>
+      <!--The button logic for save button.-->
       <button class="saveRecordingButton" id="saveRecording">
         Save Recording
       </button>
+      <!--The button logic for discard button.-->
       <button class="discardRecordingButton" id="discardRecording">
         Discard Recording
       </button>
@@ -119,6 +154,7 @@
 
     <!--Div for popup when user gets the right answer-->
     <div class="correctAnswer" id="correctAnswer">
+      <!--Location of the success png-->
       <img
         src="./assets/images/feedback/success.png"
         alt="Success"
@@ -129,6 +165,7 @@
 
     <!--Div for popup when user gets the wrong answer-->
     <div class="incorrectAnswer" id="incorrectAnswer">
+      <!--Location of the incorrect answer png-->
       <img
         src="./assets/images/feedback/mistake.png"
         alt="Mistake"
@@ -137,7 +174,11 @@
       />
     </div>
 
+    <!--The link to the actual game logic written in JavsScript. The purpose and authors of this file 
+        are stated in its header. -->
     <script src="./assets/js/game.js"></script>
+    <!--The link to the JavaScript file that holds the logic required for recording, saving, and manipulating audio files.
+        the purpose and authors of this file are stated in its header-->
     <script src="./assets/js/record.js"></script>
   </body>
 </html>
