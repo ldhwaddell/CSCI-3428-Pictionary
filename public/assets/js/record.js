@@ -73,7 +73,7 @@ function mediaRecorderStop() {
   
   Parameters: None
 
-  Returns: None
+  Returns: A promise to ensure that the countdown timer reaches 0
 
   Author: Olly MacDonald, Clifford Brown
 */
@@ -83,7 +83,7 @@ function recordingCountdown() {
   timeLeftText.innerHTML = "Starting!";
 
   var timeLeft = 3;
-  // Create a promise to ensure countdown reaches -
+  // Create a promise to ensure countdown reaches 0
   return new Promise((resolve, reject) => {
     // Set interval to one second and start countdownTimer
     var countdownTimer = setInterval(() => {
@@ -120,7 +120,6 @@ function recordingCountdown() {
 function record() {
   //Fix activeWord
   document.getElementById("activeWord").innerHTML = correctAnswer.name;
-  console.log(correctAnswer.name);
   // Display recording buttons
   document.getElementById("recordingButtons").style.display = "block";
   // Put current word on display

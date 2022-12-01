@@ -138,6 +138,7 @@ function playSound() {
   let audio = audioName.includes(".wav")
     ? new Audio(`./assets/audioFiles/${audioName}`)
     : new Audio(audioName);
+  // Play the audio file, catching any errors and logging them to console
   audio.play().catch((err) => {
     console.log(err);
     alert("There was an error. please try again later");
@@ -296,7 +297,7 @@ function beatTheGame() {
 
 /*
   Purpose: The purpose of this function is to hide any element that gets
-           passed to it by changing its CSS properties
+           passed to it by changing its CSS "display" properties
 
   Parameters: (1): The element to be hidden
 
