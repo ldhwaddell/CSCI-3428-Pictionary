@@ -322,7 +322,7 @@ function settings() {
   let obj = {
     test: 1,
   };
-  $.post(SERVER_URL + "/saveAudio", obj);
+  $.post(SERVER_URL + "/testSettings", obj);
 }
 
 /*

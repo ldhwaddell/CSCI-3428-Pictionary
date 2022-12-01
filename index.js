@@ -4,8 +4,14 @@
   and add "http://ugdev.cs.smu.ca" to the list. This allows the http access
   to be considered secure so recording works and we can communicate with the server. 
 
+  Purpose: The purpose of this file is to serve as a possible server for the backend of our game. 
+  Due to http/https issues, this server is not actually being implemented in our game. However, it is still being
+  commented for perhaps someone in the future who decides to use this logic.
+
+  Authors: Sebastian Cox, Lucas Waddell
 */
 
+// ------------------------------Global Constants and Variables------------------------------
 const path = require("path"); // allow access to env
 const express = require("express");
 const app = express(); //instantiate express app
@@ -32,6 +38,16 @@ let database = "group23C";
 let connectionString =
   head + user + ":" + password + "@" + localHost + ":" + localPort + "/" + user;
 
+
+/*
+  Purpose: Asynchronous function to instantiate the server.
+
+  Parameters: None
+
+  Return: None
+
+  Author: Sebastian Cox, Lucas Waddell
+*/
 async function instantiateServer() {
   app.use(express.static("public/assets")); // expose the directory public/assets
   app.use(allowCrossDomain); // implement allowable domain characteristics
@@ -42,6 +58,15 @@ async function instantiateServer() {
   });
 }
 
+/*
+  Purpose: Asynchronous function to connect to the mongoDB backend
+
+  Parameters: None
+
+  Return: None
+
+  Author: Sebastian Cox, Lucas Waddell
+*/
 async function connectMongoDB() {
   const db = new MongoClient(connectionString);
   try {
@@ -56,10 +81,25 @@ async function connectMongoDB() {
   }
 }
 
-app.post("/saveAudio", function (req) {
+/*
+  Purpose: Test sending information from game to backend
+
+  Parameters: "/testSettings" the url destination to be recognized
+              Purpose: To test that the information was successfully received by logging it to console
+              Parameters: (1) req: The request object
+              Returns: None
+  Return: None
+
+  Author: Sebastian Cox, Lucas Waddell
+*/
+app.post("/testSettings", function (req) {
+  // Log success and the body of request if a success
   console.log("success");
   console.log(req.body);
 });
 
+//Instantiate the server and connect to mongoDB.
+
+//calls each function and then catches any errors, logging them to console
 instantiateServer().catch(console.error);
 connectMongoDB().catch(console.error);
