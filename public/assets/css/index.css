@@ -1,19 +1,64 @@
+/*
+ Purpose: The purpose of this file is to enhance the
+ visual appeal of the html for the Pictionary Game created.
+
+ The individual CSS functions do not have authors as pretty much everyone has
+ modified at least one property of each element to make sure everything works. Therefore it is not possible
+ to confidently state that one person has been the only one to work on any one part.
+
+ Author(s) / Work Done: Clifford Brown, Lucas Waddell, Sebastian Cox, Olly MacDonald, Nickieda Johnson
+*/
+
+/*
+ *The HTML Elements are below.
+ *Note: There are no HTML Elements used in this project.
+ *Everything used in this Document is user defined.
+ *An HTML Element has no period in CSS with no signature at the front.
+ */
+
+/*
+ *The ID's are all below.
+ *Note: There are NO ID's used in this project.
+ *Everything used in this Document is user defined.
+ *An ID in CSS has a hashtag signature at the front.
+ */
+
+/*
+ *The user defined Classes are below.
+ *Everything in this document are used defined classes.
+ */
+
+/*
+  Makes the settings button get larger when hovered over
+*/
 .settingsButton:hover {
   transform: scale(1.15);
 }
 
+/*
+  Makes the play button get larger when hovered over
+*/
 .playButton:hover {
   transform: scale(1.15);
 }
 
+/*
+  Makes the record button get larger when hovered over
+*/
 .recordButton:hover {
   transform: scale(1.15);
 }
 
+/*
+  Makes the picture buttons get larger when hovered over
+*/
 .picButton:hover {
   transform: scale(1.15);
 }
 
+/*
+  Add styling for the container at top of page that contains buttons
+*/
 .headerContainer {
   padding: 10px;
   text-align: center;
@@ -21,6 +66,9 @@
   font-size: 30px;
 }
 
+/*
+  Add styling for the settings button at top of page
+*/
 .settingsButton {
   position: absolute;
   top: 20px;
@@ -31,15 +79,24 @@
   background-color: #4c3024;
 }
 
+/*
+  Make the entire page has an orange backgroun
+*/
 .pageContainer {
   background: #ef8738;
 }
 
+/*
+  Add styling for the buttons container at top of page
+*/
 .buttonsContainer {
   width: 1000px;
   margin: 0 auto;
   height: 200px;
 }
+/*
+  Add styling for each box in buttons container at top of page
+*/
 .buttonsContainer [class*="box"] {
   width: 300px;
   height: 200px;
@@ -47,16 +104,26 @@
   margin-right: 50px;
 }
 
+/*
+  Add margin to the box contained record button in buttons container
+*/
 .buttonsContainer .boxRecord {
   margin-right: 0;
 }
 
+/*
+  Add styling to the container containing the three pictures
+*/
 .gameContainer {
   position: relative;
   width: 95%;
   margin: 0 auto;
   /*find way to make this a percent, not a pixel amount*/
 }
+
+/*
+  Add styling to each box in the game container
+*/
 .gameContainer [class*="box"] {
   margin-top: 1.5%;
   width: 30%;
@@ -64,11 +131,17 @@
   margin-right: 5%;
 }
 
+/*
+  Add margin to the third picture in the game container
+*/
 .gameContainer .boxPic3 {
   /*required to keep the three divs with pictures in them in correct order*/
   margin-right: 0;
 }
 
+/*
+  Add styling to the play button
+*/
 .playButton {
   display: block;
   margin-top: 3%;
@@ -79,6 +152,9 @@
   background-color: #4c3024;
 }
 
+/*
+  Add styling to the image in the play button
+*/
 .playButtonImage {
   vertical-align: top;
   width: auto;
@@ -86,6 +162,9 @@
   margin-top: -10%;
 }
 
+/*
+  Add styling to the record button
+*/
 .recordButton {
   display: block;
   margin-top: 3%;
@@ -96,17 +175,26 @@
   background-color: #4c3024;
 }
 
+/*
+  Add styling to the image in the record button
+*/
 .recordButtonImage {
   vertical-align: top;
   width: auto;
   height: 100%;
 }
 
+/*
+  Add styling to the picture buttons
+*/
 .picButton {
   width: 100%;
   outline: 5px solid #d25753;
 }
 
+/*
+  Add styling to container in middle of screen containing the word
+*/
 .wordsContainer {
   padding: 80px;
   text-align: center;
@@ -115,12 +203,18 @@
   color: antiquewhite;
 }
 
+/*
+  Add styling to the logo displayed at top of screen
+*/
 .logoImage {
   vertical-align: top;
   width: auto;
   height: 100%;
 }
 
+/*
+  Add styling to the container that contains the title page that covers initial screen
+*/
 .titlePageContainer {
   position: absolute;
   top: 0;
@@ -135,6 +229,9 @@
   background-size: cover;
 }
 
+/*
+  Add styling to the title on the title page
+*/
 .title {
   z-index: -1;
   margin: auto;
@@ -144,11 +241,17 @@
   font-size: 3rem;
 }
 
+/*
+  Make the title colour transition to red when hovered over
+*/
 .title:hover {
   color: #f77062;
   transition: all 0.3s ease;
 }
 
+/*
+  Add styling to the image of the dorr on title page
+*/
 .titleImage {
   display: flex;
   justify-content: center;
@@ -159,6 +262,9 @@
   filter: brightness(0.5);
 }
 
+/*
+  Add styling to pop up that contains the recording buttons
+*/
 .recordingButtonsContainer {
   display: none;
   background-color: #f2a63b;
@@ -173,6 +279,9 @@
   outline: 5px solid #d25753;
 }
 
+/*
+  Add styling to word that gets displayed at top of the recording buttons popup
+*/
 .displayWord {
   display: flex;
   align-items: center;
@@ -190,6 +299,9 @@
   outline: 5px solid #d25753;
 }
 
+/*
+  Add styling to recording button that gets displayed in the recording buttons popup
+*/
 .stopRecordingButton {
   position: absolute;
   top: 50%;
@@ -203,6 +315,9 @@
   color: antiquewhite;
 }
 
+/*
+  Add styling to listen to recording button that gets displayed in the recording buttons popup
+*/
 .listenRecordingButton {
   position: absolute;
   top: 50%;
@@ -216,6 +331,9 @@
   margin-left: 215px;
 }
 
+/*
+  Add styling to the save recording button that gets displayed in the recording buttons popup
+*/
 .saveRecordingButton {
   margin: 0;
   position: absolute;
@@ -230,6 +348,9 @@
   transform: translateY(-70%);
 }
 
+/*
+  Add styling to the discard recording button that gets displayed in the recording buttons popup
+*/
 .discardRecordingButton {
   margin: 0;
   position: absolute;
@@ -245,6 +366,9 @@
   margin-left: 215px;
 }
 
+/*
+  Add styling to the pop up that is displayed upon a correct answer
+*/
 .correctAnswer {
   display: none;
   position: absolute;
@@ -256,6 +380,9 @@
   width: 100%;
 }
 
+/*
+  Add styling image in the correct answer popup
+*/
 .successImage {
   display: none;
   margin-left: auto;
@@ -264,6 +391,9 @@
   width: auto;
 }
 
+/*
+  Add styling to the pop up that is displayed upon an incorrect answer
+*/
 .incorrectAnswer {
   display: none;
   position: absolute;
@@ -275,6 +405,9 @@
   width: 100%;
 }
 
+/*
+  Add styling image in the incorrect answer popup
+*/
 .mistakeImage {
   display: none;
   margin-left: auto;
