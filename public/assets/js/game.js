@@ -10,7 +10,7 @@
   Nickieda Johnson and Lucas Waddell focused on logic for playing sounds
  */
 
-// ------------------------------Global constants and Variables------------------------------
+// ------------------------------Global Constants and Variables------------------------------
 /* The server "Socket" used to connect.
  * The Internet Protocol is 140.184.230.209 as
  * specified in the Software Requirements
@@ -357,7 +357,7 @@ function hideMistake() {
   hideElement("incorrectAnswer");
 }
 
-// ------------------------------Binding Buttons to Function Clicks------------------------------
+// ------------------------------Binding Functions to Button Clicks------------------------------
 
 playButton.addEventListener("click", playSound, false);
 settingsButton.addEventListener("click", settings, false);
