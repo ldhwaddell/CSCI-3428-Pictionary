@@ -7,6 +7,19 @@ Author(s) / Work Done: Sebastian Cox, Lucas Waddell, Olly MacDonald, Nicki Johns
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- 
+      Link to BootStrap for buttons
+    
+      Date: Oct 16
+      
+      Link: https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css
+      -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <!--Link to picture for favicon on apple devices-->
     <link
       rel="apple-touch-icon"
@@ -32,19 +45,7 @@ Author(s) / Work Done: Sebastian Cox, Lucas Waddell, Olly MacDonald, Nicki Johns
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mik'tionary</title>
-    <!-- 
-      Link to BootStrap for buttons
-    
-      Date: Oct 16
-      
-      Link: https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css
-      -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
-      crossorigin="anonymous"
-    />
+
     <!--This is the external link to JQuery below in script SRC, or it can be 
         found at: https://code.jquery.com/jquery-3.6.0.min.js.
         It was used in conjunction with our skill testing questions. Essentially it is used
@@ -138,16 +139,65 @@ Author(s) / Work Done: Sebastian Cox, Lucas Waddell, Olly MacDonald, Nicki Johns
       <div class="displayWord" id="displayWord"></div>
       <!--The button logic used for stop recording button.-->
       <button class="stopRecordingButton" id="stopRecording">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="45"
+          height="45"
+          fill="currentColor"
+          class="bi bi-stop-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z"
+          />
+        </svg>
         Naqa'si
       </button>
       <!--The button logic for listen button.-->
-      <button class="listenRecordingButton" id="listenRecording">Listen</button>
+      <button class="listenRecordingButton" id="listenRecording">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="50"
+          height="50"
+          fill="currentColor"
+          class="bi bi-play-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"
+          />
+        </svg>
+      </button>
       <!--The button logic for save button.-->
       <button class="saveRecordingButton" id="saveRecording">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="currentColor"
+          class="bi bi-save2-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v6h-2a.5.5 0 0 0-.354.854l2.5 2.5a.5.5 0 0 0 .708 0l2.5-2.5A.5.5 0 0 0 10.5 7.5h-2v-6z"
+          />
+        </svg>
         Klo'te'n
       </button>
       <!--The button logic for discard button.-->
       <button class="discardRecordingButton" id="discardRecording">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="currentColor"
+          class="bi bi-trash3-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+          />
+        </svg>
         Jiklekey
       </button>
     </div>
