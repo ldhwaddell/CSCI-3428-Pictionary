@@ -32,10 +32,10 @@ const allQuestions = [
   { id: "0", name: "aqq", img: "aqq.jpg", audio: "aqq.wav" },
   { id: "1", name: "eliey", img: "eliey.jpg", audio: "eliey.wav" },
   { id: "2", name: "kesalk", img: "kesalk.jpg", audio: "kesalk.wav" },
-  { id: "3", name: "kil", img: "kil.jpg", audio: "kil.wav" },
+  { id: "3", name: "ki'l", img: "ki'l.jpg", audio: "ki'l.wav" },
   { id: "4", name: "ltu", img: "ltu.jpg", audio: "ltu.wav" },
   { id: "5", name: "mijisi", img: "mijisi.jpg", audio: "mijisi.wav" },
-  { id: "6", name: "nin", img: "nin.jpg", audio: "nin.wav" },
+  { id: "6", name: "ni'n", img: "ni'n.jpg", audio: "ni'n.wav" },
   { id: "7", name: "teluisi", img: "teluisi.jpg", audio: "teluisi.wav" },
   { id: "8", name: "wiktm", img: "wiktm.jpg", audio: "wiktm.wav" },
 ];
@@ -212,7 +212,8 @@ function loadQuestions() {
   let picNum = 1;
   //iterate through the randomly ordered list of questions
   randomOrderedQuestions.forEach((question) => {
-    let dimensions = `" width="325" height="325" onclick="choose('${question.name}')""/>`;
+    // Use escape quotes to deal with words that have ' in them
+    let dimensions = `" width="325" height="325" onclick="choose(&quot;${question.name}&quot;)""/>`;
     document.getElementById(`pic${picNum}`).innerHTML =
       params + question.img + dimensions;
     picNum += 1;
@@ -251,6 +252,8 @@ function removeElement(arr, answer) {
   Author: Sebastian Cox, Clifford Brown
 */
 function choose(selection) {
+  console.log(selection);
+  console.log(correctAnswer.name);
   if (selection == correctAnswer.name) {
     //add correct answer to correctAnswers:
     correctAnswers.push(correctAnswer);
