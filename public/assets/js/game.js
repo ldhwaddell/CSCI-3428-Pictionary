@@ -252,8 +252,6 @@ function removeElement(arr, answer) {
   Author: Sebastian Cox, Clifford Brown
 */
 function choose(selection) {
-  console.log(selection);
-  console.log(correctAnswer.name);
   if (selection == correctAnswer.name) {
     //add correct answer to correctAnswers:
     correctAnswers.push(correctAnswer);
